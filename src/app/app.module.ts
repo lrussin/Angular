@@ -9,12 +9,14 @@ import { AppBootstrapModule } from './app-bootstrap/app-bootstrap.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClienteCadastroComponent } from './components/cliente-cadastro/cliente-cadastro.component'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { ClienteEditarComponent } from './components/cliente-editar/cliente-editar/cliente-editar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ClienteListaComponent,
-    ClienteCadastroComponent
+    ClienteCadastroComponent,
+    ClienteEditarComponent
   ],
   imports: [
     BrowserModule,

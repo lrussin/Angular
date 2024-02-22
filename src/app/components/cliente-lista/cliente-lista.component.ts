@@ -57,4 +57,8 @@ export class ClienteListaComponent implements OnInit {
   onDesisteRemover(): void {
     this.modalRef?.hide();
   }
+
+  onEditarCliente(id: number) {
+    this.router.navigateByUrl(`/editar-cliente/${id}`);
+  }
 }
