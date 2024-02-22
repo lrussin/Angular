@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "atividade-angular": {
+    "curso-angular": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/atividade-angular",
+            "outputPath": "dist/curso-angular",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -25,9 +25,11 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {
@@ -43,7 +45,30 @@
                   "maximumError": "4kb"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "fileReplacements": [{
+                "replace": "src/app/env/env.ts",
+                "with": "src/app/env/env.prd.ts"
+              }]
+            },
+            "staging": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all",
+              "fileReplacements": [{
+                "replace": "src/app/env/env.ts",
+                "with": "src/app/env/env.stg.ts"
+              }]
             },
             "development": {
               "buildOptimizer": false,
@@ -60,10 +85,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "atividade-angular:build:production"
+              "browserTarget": "curso-angular:build:production"
             },
             "development": {
-              "browserTarget": "atividade-angular:build:development"
+              "browserTarget": "curso-angular:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +96,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "atividade-angular:build"
+            "browserTarget": "curso-angular:build"
           }
         },
         "test": {
@@ -94,8 +119,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": "a9ec31dd-5359-4f02-b6a0-9ac041a60cde"
   }
 }
