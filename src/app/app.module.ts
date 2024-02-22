@@ -16,6 +16,11 @@ import { LoginComponent } from './components/login/login.component'
 import { HttpInterceptorProviders } from './interceptors/http-interceptor';
 import { Erro401Component } from './components/erro401/erro401.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { DestaqueDirective } from './directives/destaque.directive';
+import { UserDirective } from './directives/user.directive';
+import { TelefonePipe } from './pipes/telefone.pipe';
+import { FiltrarListaPipe } from './pipes/filtrar-lista.pipe';
+import { ClienteEditarComponent } from './components/cliente-editar/cliente-editar.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,12 @@ import { LogoutComponent } from './components/logout/logout.component';
     HomeComponent,
     LoginComponent,
     Erro401Component,
-    LogoutComponent
+    LogoutComponent,
+    DestaqueDirective,
+    UserDirective,
+    TelefonePipe,
+    FiltrarListaPipe,
+    ClienteEditarComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +46,7 @@ import { LogoutComponent } from './components/logout/logout.component';
     AppBootstrapModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [HttpInterceptorProviders],
   bootstrap: [AppComponent]

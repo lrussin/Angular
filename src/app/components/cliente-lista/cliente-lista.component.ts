@@ -14,6 +14,7 @@ export class ClienteListaComponent implements OnInit {
   public cliente: Cliente[] = [];
   public modalRef?: BsModalRef;
   public clienteId: number = 0;
+  public searchText: string = '';
 
   constructor(
     private clienteSevice: ClienteService,
@@ -48,7 +49,7 @@ export class ClienteListaComponent implements OnInit {
   onConfirmaRemover(): void {
     this.clienteSevice.delete(this.clienteId).subscribe({
       next: () => {
-        this.loadCliente()
+        this.loadCliente();
         this.modalRef?.hide();
       },
     });
@@ -56,5 +57,9 @@ export class ClienteListaComponent implements OnInit {
 
   onDesisteRemover(): void {
     this.modalRef?.hide();
+  }
+
+  onEditarCliente(id: string) {
+    this.router.navigateByUrl(`/editar-cliente/${id}`);
   }
 }
